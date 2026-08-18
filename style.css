@@ -251,18 +251,19 @@ body {
     position: absolute;
 
     left: 50%;
-    bottom: -1.5vw;
-
-    transform: translateX(-50%);
+    bottom: 0;
 
     width: 100vw;
 
+    transform: translateX(-50%) scaleX(1.12);
+    transform-origin: center bottom;
+
     color: #e8e8e3;
 
-    font-size: 15.3vw;
+    font-size: 15.8vw;
     font-weight: 600;
 
-    line-height: 0.82;
+    line-height: 0.78;
     letter-spacing: -0.075em;
 
     white-space: nowrap;
