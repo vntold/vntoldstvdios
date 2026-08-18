@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+/* PAGE */
+
 html,
 body {
   width: 100%;
@@ -22,93 +24,101 @@ body {
 .page {
   position: relative;
 
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 
-  min-height: 650px;
+  overflow: hidden;
 
   background: #111111;
 }
 
-/* CENTER AREA */
+/* =========================
+   CENTRE CONTENT
+========================= */
 
 .center-wrap {
   position: absolute;
 
   left: 50%;
-  top: 51%;
+  top: 50%;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) translateY(-1vh);
 
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* COUNTDOWN */
+/* =========================
+   COUNTDOWN
+========================= */
 
 .countdown {
   display: flex;
-  gap: 8px;
+  gap: 9px;
 
-  margin-bottom: 58px;
+  margin-bottom: 72px;
 }
 
 .time-box {
-  width: 58px;
-  height: 58px;
+  width: 66px;
+  height: 66px;
 
-  background: #1c1c1c;
+  background: #1b1b1b;
 
   border-radius: 6px;
 
   display: flex;
   flex-direction: column;
 
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .number {
-  color: #f4f4f1;
+  color: #f3f3ef;
 
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
 
   line-height: 1;
 }
 
 .label {
-  margin-top: 6px;
+  margin-top: 7px;
 
-  color: #929292;
+  color: #8f8f8f;
 
   font-size: 5px;
   font-weight: 600;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
 
   text-transform: uppercase;
 }
 
-/* BRAND AREA */
+/* =========================
+   BRAND LOCKUP
+========================= */
 
 .brand-row {
   display: flex;
   align-items: center;
 }
 
+/* LEFT */
+
 .brand-left {
   display: flex;
   align-items: center;
 
-  gap: 17px;
+  gap: 18px;
 }
 
 .symbol {
-  color: #ff3517;
+  color: #ff3b19;
 
-  font-size: 60px;
+  font-size: 63px;
   font-weight: 700;
 
   line-height: 0.7;
@@ -116,64 +126,103 @@ body {
   transform: translateY(-1px);
 }
 
+/* VNTOLD */
+
 .brand-name {
   display: flex;
   flex-direction: column;
 
-  color: #efefec;
+  color: #f0f0ed;
 
-  font-size: 28px;
+  font-size: 29px;
   font-weight: 700;
 
-  line-height: 0.82;
+  line-height: 0.78;
 
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
 }
+
+/* DIVIDER */
 
 .divider {
   width: 2px;
-  height: 52px;
+  height: 60px;
 
-  margin-left: 28px;
-  margin-right: 28px;
+  margin-left: 31px;
+  margin-right: 31px;
 
-  background: #e8e8e3;
+  background: #ecece8;
 }
+
+/* DESCRIPTION */
 
 .descriptor {
-  min-width: 180px;
+  color: #f0f0ed;
 
-  color: #efefec;
-
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 600;
 
-  line-height: 1.04;
+  line-height: 1.02;
 
-  letter-spacing: -0.025em;
-}
-
-/* HUGE BOTTOM TEXT */
-
-.coming-soon {
-  position: absolute;
-
-  left: 10px;
-  bottom: -47px;
-
-  color: #e8e8e3;
-
-  font-size: clamp(120px, 15vw, 290px);
-  font-weight: 600;
-
-  line-height: 0.8;
-
-  letter-spacing: -0.065em;
+  letter-spacing: -0.035em;
 
   white-space: nowrap;
 }
 
-/* TABLET */
+/* =========================
+   GIANT "COMING SOON"
+========================= */
+
+.coming-soon-wrap {
+  position: absolute;
+
+  left: 50%;
+
+  /*
+    Negative bottom means only the LOWER
+    section of the letters is cropped.
+    
+    Change this if you want:
+    
+    -1vw = show more
+    -3vw = crop more
+  */
+  bottom: -1.7vw;
+
+  transform: translateX(-50%);
+
+  width: max-content;
+
+  pointer-events: none;
+}
+
+.coming-soon {
+  display: block;
+
+  color: #ebeae5;
+
+  /*
+    Height of the typography.
+    JS stretches the WIDTH separately.
+  */
+  font-size: 16.2vw;
+
+  font-weight: 600;
+
+  line-height: 0.78;
+
+  letter-spacing: -0.07em;
+
+  white-space: nowrap;
+
+  transform-origin: center bottom;
+
+  will-change: transform;
+}
+
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 900px) {
   .center-wrap {
@@ -181,58 +230,68 @@ body {
   }
 
   .countdown {
-    margin-bottom: 45px;
+    margin-bottom: 55px;
   }
 
-  .brand-name {
-    font-size: 23px;
+  .time-box {
+    width: 58px;
+    height: 58px;
+  }
+
+  .number {
+    font-size: 16px;
   }
 
   .symbol {
-    font-size: 50px;
+    font-size: 52px;
   }
 
-  .descriptor {
-    font-size: 16px;
-    min-width: 150px;
+  .brand-name {
+    font-size: 24px;
   }
 
   .divider {
-    margin-left: 22px;
-    margin-right: 22px;
+    height: 52px;
+
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .descriptor {
+    font-size: 17px;
   }
 
   .coming-soon {
-    bottom: -20px;
+    font-size: 17vw;
+  }
 
-    font-size: clamp(90px, 18vw, 180px);
+  .coming-soon-wrap {
+    bottom: -1vw;
   }
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
-  body {
-    overflow: hidden;
-  }
-
   .center-wrap {
     top: 43%;
 
     width: 100%;
 
-    padding: 0 20px;
+    padding: 0 15px;
   }
 
   .countdown {
-    gap: 5px;
+    gap: 6px;
 
-    margin-bottom: 40px;
+    margin-bottom: 48px;
   }
 
   .time-box {
-    width: 53px;
-    height: 53px;
+    width: 54px;
+    height: 54px;
   }
 
   .number {
@@ -247,29 +306,11 @@ body {
     transform: scale(0.78);
   }
 
-  .coming-soon-wrap {
-    position: absolute;
-    left: 0;
-    bottom: 20px;
-
-    width: 100vw;
-
-    overflow: visible;
+  .coming-soon {
+    font-size: 23vw;
   }
 
-  .coming-soon {
-    display: inline-block;
-
-    color: #e8e8e3;
-
-    font-size: 15vw;
-    font-weight: 600;
-
-    line-height: 0.8;
-    letter-spacing: -0.07em;
-
-    white-space: nowrap;
-
-    transform-origin: left bottom;
+  .coming-soon-wrap {
+    bottom: 0;
   }
 }
