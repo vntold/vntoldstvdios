@@ -4,19 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>VNTOLD STVDIOS</title>
+    <title>VNTOLD STVDIO</title>
 
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <main class="coming-soon">
-      <div class="content">
-        <h1 class="title">vntold stvdios</h1>
-
+    <main class="page">
+      <div class="center-wrap">
         <div class="countdown">
           <div class="time-box">
-            <span class="number" id="days">21</span>
+            <span class="number" id="days">20</span>
             <span class="label">days</span>
           </div>
 
@@ -35,14 +33,34 @@
             <span class="label">seconds</span>
           </div>
         </div>
+
+        <div class="brand-row">
+          <div class="brand-left">
+            <div class="symbol">✱</div>
+
+            <div class="brand-name">
+              <span>vntold</span>
+              <span>stvdio</span>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="descriptor">
+            architecture +<br />
+            design studio
+          </div>
+        </div>
       </div>
+
+      <div class="coming-soon">Coming soon</div>
     </main>
 
     <script>
       const launchDate = new Date("2026-09-08T00:00:00+10:00").getTime();
 
       function updateCountdown() {
-        const now = new Date().getTime();
+        const now = Date.now();
         const distance = launchDate - now;
 
         if (distance <= 0) {

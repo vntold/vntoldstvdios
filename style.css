@@ -11,177 +11,248 @@ body {
 }
 
 body {
-  overflow: hidden;
-  background: #111;
+  background: #111111;
+  color: #efefec;
+
   font-family: Arial, Helvetica, sans-serif;
+
+  overflow: hidden;
 }
 
-.coming-soon {
+.page {
   position: relative;
 
   width: 100%;
   height: 100vh;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 650px;
 
-  background-image: url("background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #111111;
 }
 
-/* subtle dark overlay */
-.coming-soon::before {
-  content: "";
+/* CENTER AREA */
 
+.center-wrap {
   position: absolute;
-  inset: 0;
 
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.04),
-    rgba(0, 0, 0, 0.12)
-  );
+  left: 50%;
+  top: 51%;
 
-  z-index: 1;
-}
-
-.content {
-  position: relative;
-  z-index: 2;
+  transform: translate(-50%, -50%);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  transform: translateY(-2vh);
 }
 
-/* title */
-
-.title {
-  color: #ffffff;
-
-  font-size: clamp(28px, 2.3vw, 42px);
-  font-weight: 500;
-
-  letter-spacing: 0.11em;
-
-  margin-bottom: 32px;
-
-  text-transform: lowercase;
-
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-}
-
-/* countdown */
+/* COUNTDOWN */
 
 .countdown {
   display: flex;
-  gap: 16px;
+  gap: 8px;
+
+  margin-bottom: 58px;
 }
 
 .time-box {
-  width: 112px;
-  height: 112px;
+  width: 58px;
+  height: 58px;
+
+  background: #1c1c1c;
+
+  border-radius: 6px;
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
-
-  background: rgba(15, 15, 15, 0.94);
-
-  border-radius: 11px;
-
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
 .number {
-  color: #ffffff;
+  color: #f4f4f1;
 
-  font-size: 31px;
+  font-size: 16px;
   font-weight: 700;
 
   line-height: 1;
 }
 
 .label {
-  margin-top: 10px;
+  margin-top: 6px;
 
-  color: rgba(255, 255, 255, 0.55);
+  color: #929292;
 
-  font-size: 8px;
-  font-weight: 500;
+  font-size: 5px;
+  font-weight: 600;
 
   letter-spacing: 0.08em;
 
   text-transform: uppercase;
 }
 
-/* tablet */
+/* BRAND AREA */
+
+.brand-row {
+  display: flex;
+  align-items: center;
+}
+
+.brand-left {
+  display: flex;
+  align-items: center;
+
+  gap: 17px;
+}
+
+.symbol {
+  color: #ff3517;
+
+  font-size: 60px;
+  font-weight: 700;
+
+  line-height: 0.7;
+
+  transform: translateY(-1px);
+}
+
+.brand-name {
+  display: flex;
+  flex-direction: column;
+
+  color: #efefec;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  line-height: 0.82;
+
+  letter-spacing: -0.04em;
+}
+
+.divider {
+  width: 2px;
+  height: 52px;
+
+  margin-left: 28px;
+  margin-right: 28px;
+
+  background: #e8e8e3;
+}
+
+.descriptor {
+  min-width: 180px;
+
+  color: #efefec;
+
+  font-size: 19px;
+  font-weight: 600;
+
+  line-height: 1.04;
+
+  letter-spacing: -0.025em;
+}
+
+/* HUGE BOTTOM TEXT */
+
+.coming-soon {
+  position: absolute;
+
+  left: 10px;
+  bottom: -47px;
+
+  color: #e8e8e3;
+
+  font-size: clamp(120px, 15vw, 290px);
+  font-weight: 600;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.065em;
+
+  white-space: nowrap;
+}
+
+/* TABLET */
 
 @media (max-width: 900px) {
-  .title {
-    font-size: 28px;
-    margin-bottom: 26px;
+  .center-wrap {
+    top: 47%;
   }
 
   .countdown {
-    gap: 12px;
+    margin-bottom: 45px;
   }
 
-  .time-box {
-    width: 92px;
-    height: 92px;
+  .brand-name {
+    font-size: 23px;
   }
 
-  .number {
-    font-size: 27px;
+  .symbol {
+    font-size: 50px;
   }
 
-  .label {
-    font-size: 7px;
-    margin-top: 8px;
+  .descriptor {
+    font-size: 16px;
+    min-width: 150px;
+  }
+
+  .divider {
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+
+  .coming-soon {
+    bottom: -20px;
+
+    font-size: clamp(90px, 18vw, 180px);
   }
 }
 
-/* mobile */
+/* MOBILE */
 
 @media (max-width: 600px) {
-  .coming-soon {
-    background-position: center;
+  body {
+    overflow: hidden;
   }
 
-  .content {
-    transform: translateY(-1vh);
-  }
+  .center-wrap {
+    top: 43%;
 
-  .title {
-    font-size: 20px;
-    margin-bottom: 22px;
-    letter-spacing: 0.1em;
+    width: 100%;
+
+    padding: 0 20px;
   }
 
   .countdown {
-    gap: 7px;
+    gap: 5px;
+
+    margin-bottom: 40px;
   }
 
   .time-box {
-    width: 74px;
-    height: 74px;
-
-    border-radius: 8px;
+    width: 53px;
+    height: 53px;
   }
 
   .number {
-    font-size: 21px;
+    font-size: 15px;
   }
 
   .label {
-    font-size: 6px;
-    margin-top: 6px;
+    font-size: 5px;
+  }
+
+  .brand-row {
+    transform: scale(0.78);
+  }
+
+  .coming-soon {
+    left: 10px;
+    bottom: 4px;
+
+    font-size: 22vw;
+
+    line-height: 0.82;
   }
 }
