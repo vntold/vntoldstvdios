@@ -53,7 +53,9 @@
         </div>
       </div>
 
-      <div class="coming-soon">Coming soon</div>
+      <div class="coming-soon-wrap">
+        <div class="coming-soon" id="comingSoon">Coming soon</div>
+      </div>
     </main>
 
     <script>
@@ -102,6 +104,22 @@
 
       updateCountdown();
       setInterval(updateCountdown, 1000);
+
+      function fitComingSoon() {
+        const text = document.getElementById("comingSoon");
+
+        text.style.transform = "scaleX(1)";
+
+        const textWidth = text.getBoundingClientRect().width;
+        const screenWidth = window.innerWidth;
+
+        const scale = (screenWidth / textWidth) * 1.02;
+
+        text.style.transform = `scaleX(${scale})`;
+      }
+
+      window.addEventListener("load", fitComingSoon);
+      window.addEventListener("resize", fitComingSoon);
     </script>
   </body>
 </html>

@@ -247,26 +247,29 @@ body {
     transform: scale(0.78);
   }
 
-  .coming-soon {
+  .coming-soon-wrap {
     position: absolute;
-
-    left: 50%;
-    bottom: 0;
+    left: 0;
+    bottom: 20px;
 
     width: 100vw;
 
-    transform: translateX(-50%) scaleX(1.12);
-    transform-origin: center bottom;
+    overflow: visible;
+  }
+
+  .coming-soon {
+    display: inline-block;
 
     color: #e8e8e3;
 
-    font-size: 15.8vw;
+    font-size: 15vw;
     font-weight: 600;
 
-    line-height: 0.78;
-    letter-spacing: -0.075em;
+    line-height: 0.8;
+    letter-spacing: -0.07em;
 
     white-space: nowrap;
-    text-align: center;
+
+    transform-origin: left bottom;
   }
 }
