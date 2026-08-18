@@ -248,11 +248,24 @@ body {
   }
 
   .coming-soon {
-    left: 10px;
-    bottom: 4px;
+    position: absolute;
 
-    font-size: 22vw;
+    left: 50%;
+    bottom: -1.5vw;
+
+    transform: translateX(-50%);
+
+    width: 100vw;
+
+    color: #e8e8e3;
+
+    font-size: 15.3vw;
+    font-weight: 600;
 
     line-height: 0.82;
+    letter-spacing: -0.075em;
+
+    white-space: nowrap;
+    text-align: center;
   }
 }
