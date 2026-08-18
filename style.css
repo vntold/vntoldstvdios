@@ -4,7 +4,9 @@
   box-sizing: border-box;
 }
 
-/* PAGE */
+/* =========================
+   PAGE
+========================= */
 
 html,
 body {
@@ -54,6 +56,10 @@ body {
 ========================= */
 
 .notify-form {
+  position: absolute;
+
+  bottom: calc(100% + 58px);
+
   width: 390px;
   height: 58px;
 
@@ -62,22 +68,38 @@ body {
 
   padding: 5px;
 
-  /* move it further above the timer */
-  margin-bottom: 65px;
+  margin: 0;
 
-  /* GLASS */
   background: rgba(255, 255, 255, 0.055);
 
   border: 1px solid rgba(255, 255, 255, 0.16);
+
   border-radius: 100px;
 
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     inset 0 -1px 0 rgba(255, 255, 255, 0.025),
-    0 10px 35px rgba(0, 0, 0, 0.18);
+    0 12px 35px rgba(0, 0, 0, 0.2);
 
   backdrop-filter: blur(18px) saturate(130%);
+
   -webkit-backdrop-filter: blur(18px) saturate(130%);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.notify-form:focus-within {
+  background: rgba(255, 255, 255, 0.075);
+
+  border-color: rgba(255, 255, 255, 0.28);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.13),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.03),
+    0 14px 40px rgba(0, 0, 0, 0.22);
 }
 
 .email-input {
@@ -88,6 +110,7 @@ body {
   padding: 0 18px;
 
   background: transparent;
+
   border: none;
   outline: none;
 
@@ -100,15 +123,13 @@ body {
 
 .email-input::placeholder {
   color: rgba(255, 255, 255, 0.42);
+
   opacity: 1;
 }
 
-.email-input::placeholder {
-  color: #8c8c8c;
-  opacity: 1;
-}
-
-/* SUBMIT BUTTON */
+/* =========================
+   SUBMIT BUTTON
+========================= */
 
 .submit-button {
   height: 48px;
@@ -117,22 +138,22 @@ body {
 
   display: flex;
   align-items: center;
+
   gap: 16px;
 
   flex-shrink: 0;
 
-  background: rgba(245, 245, 242, 0.94);
+  background: rgba(245, 245, 242, 0.95);
+
   color: #111111;
 
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.68);
+
   border-radius: 100px;
 
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.8),
     0 4px 15px rgba(0, 0, 0, 0.12);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 
   font-family: inherit;
   font-size: 15px;
@@ -141,10 +162,18 @@ body {
   cursor: pointer;
 
   transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease;
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.submit-button:hover {
+  background: rgba(15, 15, 15, 0.78);
+
+  color: #f0f0ed;
+
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 .arrow {
@@ -156,23 +185,8 @@ body {
   transition: transform 0.25s ease;
 }
 
-/* HOVER */
-
-.submit-button:hover {
-  background: rgba(15, 15, 15, 0.72);
-  color: #f0f0ed;
-
-  border-color: rgba(255, 255, 255, 0.28);
-}
-
 .submit-button:hover .arrow {
   transform: translateX(4px);
-}
-
-/* EMAIL FOCUS */
-
-.notify-form:focus-within {
-  background: #303030;
 }
 
 /* =========================
@@ -181,6 +195,7 @@ body {
 
 .countdown {
   display: flex;
+
   gap: 9px;
 
   margin-bottom: 72px;
@@ -232,8 +247,6 @@ body {
   align-items: center;
 }
 
-/* LEFT */
-
 .brand-left {
   display: flex;
   align-items: center;
@@ -252,8 +265,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* VNTOLD */
-
 .brand-name {
   display: flex;
   flex-direction: column;
@@ -268,8 +279,6 @@ body {
   letter-spacing: -0.045em;
 }
 
-/* DIVIDER */
-
 .divider {
   width: 2px;
   height: 60px;
@@ -279,8 +288,6 @@ body {
 
   background: #ecece8;
 }
-
-/* DESCRIPTION */
 
 .descriptor {
   color: #f0f0ed;
@@ -303,17 +310,7 @@ body {
   position: absolute;
 
   left: 50%;
-
-  /*
-    Negative bottom means only the LOWER
-    section of the letters is cropped.
-    
-    Change this if you want:
-    
-    -1vw = show more
-    -3vw = crop more
-  */
-  bottom: -1.7vw;
+  bottom: -1.2vw;
 
   transform: translateX(-50%);
 
@@ -327,12 +324,7 @@ body {
 
   color: #ebeae5;
 
-  /*
-    Height of the typography.
-    JS stretches the WIDTH separately.
-  */
   font-size: 16.2vw;
-
   font-weight: 600;
 
   line-height: 0.78;
@@ -353,6 +345,12 @@ body {
 @media (max-width: 900px) {
   .center-wrap {
     top: 47%;
+  }
+
+  .notify-form {
+    bottom: calc(100% + 45px);
+
+    width: 350px;
   }
 
   .countdown {
@@ -392,7 +390,7 @@ body {
   }
 
   .coming-soon-wrap {
-    bottom: -1vw;
+    bottom: -0.7vw;
   }
 }
 
@@ -402,9 +400,35 @@ body {
 
 @media (max-width: 600px) {
   .center-wrap {
-    top: 43%;
+    top: 44%;
 
     width: 100%;
+
+    padding: 0 15px;
+  }
+
+  .notify-form {
+    position: absolute;
+
+    bottom: calc(100% + 38px);
+
+    width: min(340px, calc(100vw - 32px));
+
+    height: 54px;
+  }
+
+  .submit-button {
+    height: 44px;
+
+    padding: 0 15px 0 18px;
+
+    gap: 11px;
+
+    font-size: 14px;
+  }
+
+  .email-input {
+    font-size: 14px;
 
     padding: 0 15px;
   }

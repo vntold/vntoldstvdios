@@ -1,3 +1,4 @@
+html
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,6 +30,7 @@
             <span class="arrow">→</span>
           </button>
         </form>
+
         <!-- COUNTDOWN -->
         <div class="countdown">
           <div class="time-box">
@@ -79,7 +81,9 @@
     </main>
 
     <script>
-      /* COUNTDOWN */
+      /* =========================
+         COUNTDOWN
+      ========================= */
 
       const launchDate = new Date("2026-09-08T00:00:00+10:00").getTime();
 
@@ -92,7 +96,6 @@
           document.getElementById("hours").textContent = "00";
           document.getElementById("minutes").textContent = "00";
           document.getElementById("seconds").textContent = "00";
-
           return;
         }
 
@@ -128,20 +131,17 @@
       updateCountdown();
       setInterval(updateCountdown, 1000);
 
-      /* AUTOMATICALLY FIT "COMING SOON" TO SCREEN */
+      /* =========================
+         FIT "COMING SOON"
+      ========================= */
 
       function fitComingSoon() {
         const text = document.getElementById("comingSoon");
 
-        /* Reset before measuring */
         text.style.transform = "scaleX(1)";
 
         const textWidth = text.getBoundingClientRect().width;
 
-        /*
-        97% of screen width gives us a tiny margin
-        so the C and N don't get chopped off.
-      */
         const targetWidth = window.innerWidth * 0.97;
 
         const scale = targetWidth / textWidth;
@@ -151,6 +151,34 @@
 
       window.addEventListener("load", fitComingSoon);
       window.addEventListener("resize", fitComingSoon);
+
+      /* =========================
+         EMAIL FORM
+      ========================= */
+
+      const notifyForm = document.getElementById("notifyForm");
+
+      const emailInput = document.getElementById("email");
+
+      const submitButton = notifyForm.querySelector(".submit-button");
+
+      notifyForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!emailInput.checkValidity()) {
+          emailInput.reportValidity();
+          return;
+        }
+
+        submitButton.querySelector("span:first-child").textContent =
+          "Thank you";
+
+        emailInput.value = "";
+
+        setTimeout(() => {
+          submitButton.querySelector("span:first-child").textContent = "Submit";
+        }, 2500);
+      });
     </script>
   </body>
 </html>
