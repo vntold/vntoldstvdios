@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>VNTOLD STVDIOS</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0b1113;
+        overflow: hidden;
+      }
+
+      .coming-soon {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Dark / teal image treatment */
+      .coming-soon::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background: linear-gradient(
+          to bottom,
+          rgba(8, 77, 86, 0.3) 0%,
+          rgba(5, 29, 33, 0.2) 40%,
+          rgba(5, 8, 10, 0.72) 100%
+        );
+
+        z-index: 1;
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        transform: translateY(-3vh);
+      }
+
+      .title {
+        color: #ffffff;
+
+        font-size: clamp(16px, 1.3vw, 24px);
+        font-weight: 500;
+
+        letter-spacing: 0.12em;
+
+        margin-bottom: 22px;
+
+        text-transform: lowercase;
+      }
+
+      .countdown {
+        display: flex;
+        gap: 8px;
+      }
+
+      .time-box {
+        width: 58px;
+        height: 58px;
+
+        background: rgba(7, 8, 9, 0.88);
+
+        border-radius: 7px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+      }
+
+      .number {
+        color: white;
+
+        font-size: 16px;
+        font-weight: 600;
+
+        line-height: 1;
+      }
+
+      .label {
+        margin-top: 5px;
+
+        color: rgba(255, 255, 255, 0.55);
+
+        font-size: 5px;
+        font-weight: 500;
+
+        letter-spacing: 0.09em;
+
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 600px) {
+        .content {
+          transform: translateY(-2vh);
+        }
+
+        .title {
+          font-size: 14px;
+          margin-bottom: 18px;
+        }
+
+        .countdown {
+          gap: 6px;
+        }
+
+        .time-box {
+          width: 54px;
+          height: 54px;
+        }
+
+        .number {
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="coming-soon">
+      <div class="content">
+        <h1 class="title">vntold stvdios</h1>
+
+        <div class="countdown">
+          <div class="time-box">
+            <span class="number" id="days">21</span>
+            <span class="label">days</span>
+          </div>
+
+          <div class="time-box">
+            <span class="number" id="hours">00</span>
+            <span class="label">hours</span>
+          </div>
+
+          <div class="time-box">
+            <span class="number" id="minutes">00</span>
+            <span class="label">minutes</span>
+          </div>
+
+          <div class="time-box">
+            <span class="number" id="seconds">00</span>
+            <span class="label">seconds</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      /*
+      CHANGE YOUR LAUNCH DATE HERE
+
+      Format:
+      YYYY-MM-DDTHH:MM:SS
+
+      Current example:
+      8 September 2026 at midnight Melbourne time
+    */
+
+      const launchDate = new Date("2026-09-08T00:00:00+10:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+
+        const distance = launchDate - now;
+
+        if (distance <= 0) {
+          document.getElementById("days").innerText = "00";
+          document.getElementById("hours").innerText = "00";
+          document.getElementById("minutes").innerText = "00";
+          document.getElementById("seconds").innerText = "00";
+
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = String(days).padStart(
+          2,
+          "0",
+        );
+
+        document.getElementById("hours").innerText = String(hours).padStart(
+          2,
+          "0",
+        );
+
+        document.getElementById("minutes").innerText = String(minutes).padStart(
+          2,
+          "0",
+        );
+
+        document.getElementById("seconds").innerText = String(seconds).padStart(
+          2,
+          "0",
+        );
+      }
+
+      updateCountdown();
+
+      setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>
