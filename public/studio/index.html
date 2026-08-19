@@ -8,13 +8,14 @@
     <title>VNTOLD STVDIO®</title>
 
     <link rel="icon" type="image/png" href="../favicon.png" />
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <!-- =========================
+    <!-- =====================================================
          LOADER
-    ========================== -->
+    ====================================================== -->
 
     <div class="loader" id="loader">
       <div class="loader-top">
@@ -26,7 +27,8 @@
         <div class="loader-status">LOADING</div>
 
         <div class="loader-percent">
-          <span id="loaderNumber">0</span><span>%</span>
+          <span id="loaderNumber">0</span>
+          <span>%</span>
         </div>
       </div>
 
@@ -35,16 +37,18 @@
       </div>
     </div>
 
-    <!-- =========================
-         MAIN SITE
-    ========================== -->
+    <!-- =====================================================
+         MAIN WEBSITE
+    ====================================================== -->
 
     <main class="site" id="site">
-      <!-- HEADER -->
+      <!-- ===================================================
+           HEADER
+      ==================================================== -->
 
       <header class="header">
         <a href="/studio/" class="logo">
-          <span class="logo-mark">✱</span>
+          <span class="logo-mark"> ✱ </span>
 
           <span class="logo-type">
             vntold<br />
@@ -65,15 +69,16 @@
             aria-expanded="false"
             aria-controls="menuOverlay"
           >
-            <span id="menuLabel">MENU</span>
-            <span class="menu-symbol" id="menuSymbol">+</span>
+            <span id="menuLabel"> MENU </span>
+
+            <span class="menu-symbol" id="menuSymbol"> + </span>
           </button>
         </div>
       </header>
 
-      <!-- =========================
+      <!-- ===================================================
            HERO
-      ========================== -->
+      ==================================================== -->
 
       <section class="hero">
         <video
@@ -90,14 +95,14 @@
 
         <div class="hero-shade"></div>
 
-        <!-- HERO INFORMATION -->
+        <!-- HERO META -->
 
         <div class="hero-meta hero-meta-right">
           <span>CREATIVE</span>
           <span>DESIGN STUDIO</span>
         </div>
 
-        <!-- MAIN HERO TYPE -->
+        <!-- HERO TITLE -->
 
         <div class="hero-copy">
           <h1>
@@ -116,10 +121,10 @@
 
           <div class="video-time">
             [
-            <span id="currentTime">0:00</span>
+            <span id="currentTime"> 0:00 </span>
             ]
 
-            <span id="totalTime">0:00</span>
+            <span id="totalTime"> 0:00 </span>
           </div>
 
           <button id="muteButton" class="video-button" type="button">
@@ -127,17 +132,130 @@
           </button>
         </div>
 
-        <!-- SCROLL -->
+        <!-- SCROLL HINT -->
 
         <div class="scroll-hint">
           SCROLL TO EXPLORE
-          <span>↓</span>
+
+          <span> ↓ </span>
         </div>
       </section>
 
-      <!-- =========================
+      <!-- ===================================================
+           SELECTED WORK / INFINITE CAROUSEL
+      ==================================================== -->
+
+      <section class="work-section">
+        <!-- TOP INFORMATION -->
+
+        <div class="work-top">
+          <div class="work-meta">
+            <span> VNTOLD STVDIO </span>
+          </div>
+
+          <div class="work-meta work-meta-center">
+            <span> CREATIVE DESIGN STUDIO </span>
+
+            <span> MELBOURNE / AUSTRALIA </span>
+          </div>
+
+          <div class="work-meta work-meta-right">
+            <span> SELECTED WORK </span>
+
+            <span> 2026 </span>
+          </div>
+        </div>
+
+        <!-- INFINITE CAROUSEL -->
+
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- ORIGINAL SET -->
+
+            <a href="#" class="carousel-item carousel-wide">
+              <img src="images/work-01.jpg" alt="VNTOLD project 01" />
+            </a>
+
+            <a href="#" class="carousel-item">
+              <img src="images/work-02.jpg" alt="VNTOLD project 02" />
+            </a>
+
+            <a href="#" class="carousel-item">
+              <img src="images/work-03.jpg" alt="VNTOLD project 03" />
+            </a>
+
+            <a href="#" class="carousel-item carousel-wide">
+              <img src="images/work-04.jpg" alt="VNTOLD project 04" />
+            </a>
+
+            <a href="#" class="carousel-item">
+              <img src="images/work-05.jpg" alt="VNTOLD project 05" />
+            </a>
+
+            <a href="#" class="carousel-item">
+              <img src="images/work-06.jpg" alt="VNTOLD project 06" />
+            </a>
+
+            <!-- DUPLICATED SET FOR SEAMLESS LOOP -->
+
+            <a
+              href="#"
+              class="carousel-item carousel-wide"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              <img src="images/work-01.jpg" alt="" />
+            </a>
+
+            <a href="#" class="carousel-item" aria-hidden="true" tabindex="-1">
+              <img src="images/work-02.jpg" alt="" />
+            </a>
+
+            <a href="#" class="carousel-item" aria-hidden="true" tabindex="-1">
+              <img src="images/work-03.jpg" alt="" />
+            </a>
+
+            <a
+              href="#"
+              class="carousel-item carousel-wide"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              <img src="images/work-04.jpg" alt="" />
+            </a>
+
+            <a href="#" class="carousel-item" aria-hidden="true" tabindex="-1">
+              <img src="images/work-05.jpg" alt="" />
+            </a>
+
+            <a href="#" class="carousel-item" aria-hidden="true" tabindex="-1">
+              <img src="images/work-06.jpg" alt="" />
+            </a>
+          </div>
+        </div>
+
+        <!-- BOTTOM TYPE -->
+
+        <div class="work-bottom">
+          <div class="work-year">©2026</div>
+
+          <div class="work-categories">
+            <span class="active"> all, </span>
+
+            <span> identity, </span>
+
+            <span> digital, </span>
+
+            <span> spatial </span>
+          </div>
+
+          <div class="work-index">[002%]</div>
+        </div>
+      </section>
+
+      <!-- ===================================================
            INTRO
-      ========================== -->
+      ==================================================== -->
 
       <section class="intro">
         <div class="section-label">[ WHO WE ARE ]</div>
@@ -156,41 +274,41 @@
       </section>
     </main>
 
-    <!-- =========================
+    <!-- =====================================================
          FULL SCREEN MENU
-    ========================== -->
+    ====================================================== -->
 
     <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
       <div class="menu-inner">
-        <!-- LEFT MENU -->
+        <!-- LEFT SIDE -->
 
         <nav class="menu-left">
           <a href="/studio/" class="menu-item">
-            <span class="menu-number">01</span>
+            <span class="menu-number"> 01 </span>
 
             <span class="menu-link"> Home </span>
           </a>
 
           <a href="/studio/work/" class="menu-item">
-            <span class="menu-number">02</span>
+            <span class="menu-number"> 02 </span>
 
             <span class="menu-link"> Work </span>
           </a>
 
           <a href="/studio/about/" class="menu-item">
-            <span class="menu-number">03</span>
+            <span class="menu-number"> 03 </span>
 
             <span class="menu-link"> About </span>
           </a>
 
           <a href="/studio/services/" class="menu-item">
-            <span class="menu-number">04</span>
+            <span class="menu-number"> 04 </span>
 
             <span class="menu-link"> Services </span>
           </a>
 
           <a href="/studio/contact/" class="menu-item">
-            <span class="menu-number">05</span>
+            <span class="menu-number"> 05 </span>
 
             <span class="menu-link"> Contact </span>
           </a>
@@ -204,7 +322,7 @@
           </div>
         </nav>
 
-        <!-- RIGHT MENU -->
+        <!-- RIGHT SIDE -->
 
         <div class="menu-right">
           <div class="social-block">
@@ -212,34 +330,34 @@
 
             <a href="#" class="social-link">
               Instagram
-              <span>↗</span>
+
+              <span> ↗ </span>
             </a>
 
             <a href="#" class="social-link">
               LinkedIn
-              <span>↗</span>
+
+              <span> ↗ </span>
             </a>
 
             <a href="#" class="social-link">
               Behance
-              <span>↗</span>
+
+              <span> ↗ </span>
             </a>
 
             <a href="#" class="social-link">
               Pinterest
-              <span>↗</span>
+
+              <span> ↗ </span>
             </a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- =========================
-         JAVASCRIPT
-
-         IMPORTANT:
-         This stays at the VERY BOTTOM.
-    ========================== -->
+    <!-- IMPORTANT:
+         SCRIPT MUST STAY AT THE VERY BOTTOM -->
 
     <script src="code.js"></script>
   </body>

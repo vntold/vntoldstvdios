@@ -1,6 +1,6 @@
-/* =========================
+/* =========================================================
    LOADER
-========================= */
+========================================================= */
 
 const loader = document.getElementById("loader");
 
@@ -13,11 +13,6 @@ const site = document.getElementById("site");
 let progress = 0;
 
 const loaderInterval = setInterval(() => {
-  /*
-      Progress moves unevenly so it feels
-      more like a real asset loader.
-    */
-
   const increment = progress < 60 ? Math.random() * 8 : Math.random() * 3.5;
 
   progress += increment;
@@ -47,9 +42,9 @@ const loaderInterval = setInterval(() => {
   loaderProgress.style.width = `${displayedProgress}%`;
 }, 90);
 
-/* =========================
-   VIDEO
-========================= */
+/* =========================================================
+   HERO VIDEO
+========================================================= */
 
 const video = document.getElementById("heroVideo");
 
@@ -83,7 +78,7 @@ video.addEventListener("timeupdate", () => {
   currentTimeText.textContent = formatTime(video.currentTime);
 });
 
-/* PAUSE */
+/* PAUSE / PLAY */
 
 pauseButton.addEventListener("click", () => {
   if (video.paused) {
@@ -97,7 +92,7 @@ pauseButton.addEventListener("click", () => {
   }
 });
 
-/* MUTE */
+/* MUTE / UNMUTE */
 
 muteButton.addEventListener("click", () => {
   video.muted = !video.muted;
@@ -105,9 +100,9 @@ muteButton.addEventListener("click", () => {
   muteButton.textContent = video.muted ? "UNMUTE" : "MUTE";
 });
 
-/* =========================
-   MENU
-========================= */
+/* =========================================================
+   FULL SCREEN MENU
+========================================================= */
 
 const menuButton = document.getElementById("menuButton");
 
@@ -117,26 +112,71 @@ const menuLabel = document.getElementById("menuLabel");
 
 const menuSymbol = document.getElementById("menuSymbol");
 
-menuButton.addEventListener("click", () => {
-  const isOpen = menuOverlay.classList.toggle("is-open");
+function setMenuState(isOpen) {
+  menuOverlay.classList.toggle("is-open", isOpen);
 
   document.body.classList.toggle("menu-open", isOpen);
 
   menuButton.setAttribute("aria-expanded", isOpen);
 
+  menuOverlay.setAttribute("aria-hidden", !isOpen);
+
   menuLabel.textContent = isOpen ? "CLOSE" : "MENU";
 
   menuSymbol.textContent = isOpen ? "×" : "+";
+}
+
+menuButton.addEventListener("click", () => {
+  const isOpen = !menuOverlay.classList.contains("is-open");
+
+  setMenuState(isOpen);
 });
 
-/* =========================
-   OPTIONAL VIDEO-BASED LOADER
-========================= */
+/* ESC CLOSE */
 
-/*
-  If you eventually want the loader to wait
-  until your actual hero video is ready
-  instead of using the fake progress animation,
-  we can replace the loader logic above with
-  real media loading progress.
-*/
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && menuOverlay.classList.contains("is-open")) {
+    setMenuState(false);
+  }
+});
+
+/* CLOSE MENU AFTER CLICKING A MENU LINK */
+
+document.querySelectorAll(".menu-item[href]").forEach((link) => {
+  link.addEventListener("click", () => {
+    setMenuState(false);
+  });
+});
+
+/* =========================================================
+   WORK CATEGORY INTERACTION
+========================================================= */
+
+const workCategoryItems = document.querySelectorAll(".work-categories span");
+
+workCategoryItems.forEach((category) => {
+  category.addEventListener("click", () => {
+    workCategoryItems.forEach((item) => {
+      item.classList.remove("active");
+    });
+
+    category.classList.add("active");
+  });
+});
+
+/* =========================================================
+   OPTIONAL:
+   PAUSE CAROUSEL WHEN TAB IS HIDDEN
+========================================================= */
+
+const carouselTrack = document.getElementById("carouselTrack");
+
+document.addEventListener("visibilitychange", () => {
+  if (!carouselTrack) {
+    return;
+  }
+
+  carouselTrack.style.animationPlayState = document.hidden
+    ? "paused"
+    : "running";
+});
