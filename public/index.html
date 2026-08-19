@@ -161,15 +161,39 @@
 
       const passwordForm = document.getElementById("passwordForm");
 
-      passwordForm.addEventListener("submit", function (event) {
+      const passwordInput = document.getElementById("password");
+
+      passwordForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        /*
-          Password checking can be connected
-          to Cloudflare later.
+        passwordForm.classList.remove("error");
 
-          For now this stops the page refreshing.
-        */
+        try {
+          const response = await fetch("/api/login", {
+            method: "POST",
+
+            headers: {
+              "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify({
+              password: passwordInput.value,
+            }),
+          });
+
+          if (response.ok) {
+            window.location.href = "/studio/";
+            return;
+          }
+
+          passwordInput.value = "";
+
+          passwordForm.classList.add("error");
+
+          passwordInput.focus();
+        } catch (error) {
+          passwordForm.classList.add("error");
+        }
       });
     </script>
   </body>
