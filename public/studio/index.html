@@ -59,9 +59,15 @@
             AUSTRALIA
           </div>
 
-          <button class="menu-button" id="menuButton" type="button">
-            MENU
-            <span class="menu-symbol">( + )</span>
+          <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menuOverlay"
+          >
+            <span id="menuLabel">MENU</span>
+            <span class="menu-symbol" id="menuSymbol">+</span>
           </button>
         </div>
       </header>
@@ -151,5 +157,74 @@
     </main>
 
     <script src="code.js"></script>
+    <div class="menu-overlay" id="menuOverlay">
+      <div class="menu-inner">
+        <div class="menu-left">
+          <a href="/studio/" class="menu-item">
+            <span class="menu-number">01</span>
+
+            <span class="menu-link"> Home </span>
+          </a>
+
+          <a href="/studio/work/" class="menu-item">
+            <span class="menu-number">02</span>
+
+            <span class="menu-link"> Work </span>
+          </a>
+
+          <a href="/studio/about/" class="menu-item">
+            <span class="menu-number">03</span>
+
+            <span class="menu-link"> About </span>
+          </a>
+
+          <a href="/studio/services/" class="menu-item">
+            <span class="menu-number">04</span>
+
+            <span class="menu-link"> Services </span>
+          </a>
+
+          <a href="/studio/contact/" class="menu-item">
+            <span class="menu-number">05</span>
+
+            <span class="menu-link"> Contact </span>
+          </a>
+
+          <a href="/studio/archive/" class="menu-item muted">
+            <span class="menu-number">06</span>
+
+            <span class="menu-link"> Archive </span>
+
+            <span class="coming-label"> COMING SOON </span>
+          </a>
+        </div>
+
+        <div class="menu-right">
+          <div class="social-block">
+            <div class="social-title">SOCIALS</div>
+
+            <a href="#" class="social-link">
+              Instagram
+              <span>↗</span>
+            </a>
+
+            <a href="#" class="social-link">
+              LinkedIn
+              <span>↗</span>
+            </a>
+
+            <a href="#" class="social-link">
+              Behance
+              <span>↗</span>
+            </a>
+
+            <a href="#" class="social-link">
+              Pinterest
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -106,6 +106,30 @@ muteButton.addEventListener("click", () => {
 });
 
 /* =========================
+   MENU
+========================= */
+
+const menuButton = document.getElementById("menuButton");
+
+const menuOverlay = document.getElementById("menuOverlay");
+
+const menuLabel = document.getElementById("menuLabel");
+
+const menuSymbol = document.getElementById("menuSymbol");
+
+menuButton.addEventListener("click", () => {
+  const isOpen = menuOverlay.classList.toggle("is-open");
+
+  document.body.classList.toggle("menu-open", isOpen);
+
+  menuButton.setAttribute("aria-expanded", isOpen);
+
+  menuLabel.textContent = isOpen ? "CLOSE" : "MENU";
+
+  menuSymbol.textContent = isOpen ? "×" : "+";
+});
+
+/* =========================
    OPTIONAL VIDEO-BASED LOADER
 ========================= */
 
