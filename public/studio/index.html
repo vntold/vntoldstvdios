@@ -1,17 +1,161 @@
+```html
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>VNTOLD STVDIO</title>
+    <title>VNTOLD STVDIO®</title>
+
+    <link rel="icon" type="image/png" href="../favicon.png" />
+
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <h1>VNTOLD STVDIO</h1>
+    <!-- =========================
+       LOADER
+  ========================== -->
 
-    <p>The private website is working.</p>
+    <div class="loader" id="loader">
+      <div class="loader-top">
+        <span>VNTOLD STVDIO®</span>
+        <span>CREATIVE DESIGN STUDIO</span>
+      </div>
 
-    <a href="/logout">Log out</a>
+      <div class="loader-bottom">
+        <div class="loader-status">LOADING</div>
+
+        <div class="loader-percent">
+          <span id="loaderNumber">0</span><span>%</span>
+        </div>
+      </div>
+
+      <div class="loader-progress">
+        <div class="loader-progress-bar" id="loaderProgress"></div>
+      </div>
+    </div>
+
+    <!-- =========================
+       SITE
+  ========================== -->
+
+    <main class="site" id="site">
+      <!-- HEADER -->
+
+      <header class="header">
+        <a href="/studio/" class="logo">
+          <span class="logo-mark">✱</span>
+
+          <span class="logo-type">
+            vntold<br />
+            stvdio
+          </span>
+        </a>
+
+        <div class="header-right">
+          <div class="location">
+            MELBOURNE<br />
+            AUSTRALIA
+          </div>
+
+          <button class="menu-button" id="menuButton" type="button">
+            MENU
+            <span class="menu-symbol">( + )</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- =========================
+         HERO
+    ========================== -->
+
+      <section class="hero">
+        <video
+          class="hero-video"
+          id="heroVideo"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="hero-poster.jpg"
+        >
+          <source src="hero.mp4" type="video/mp4" />
+        </video>
+
+        <div class="hero-shade"></div>
+
+        <!-- HERO INFORMATION -->
+
+        <div class="hero-meta hero-meta-left">
+          <span>[ VNTOLD STVDIO ]</span>
+        </div>
+
+        <div class="hero-meta hero-meta-right">
+          <span>CREATIVE</span>
+          <span>DESIGN STUDIO</span>
+        </div>
+
+        <!-- MAIN HERO TYPE -->
+
+        <div class="hero-copy">
+          <h1>
+            Ideas made
+            <br />
+            <span class="indent">visible.</span>
+          </h1>
+        </div>
+
+        <!-- VIDEO CONTROLS -->
+
+        <div class="video-controls">
+          <button id="pauseButton" class="video-button" type="button">
+            PAUSE
+          </button>
+
+          <div class="video-time">
+            [
+            <span id="currentTime">0:00</span>
+            ]
+            <span id="totalTime">0:00</span>
+          </div>
+
+          <button id="muteButton" class="video-button" type="button">
+            UNMUTE
+          </button>
+        </div>
+
+        <!-- SCROLL -->
+
+        <div class="scroll-hint">
+          SCROLL TO EXPLORE
+          <span>↓</span>
+        </div>
+      </section>
+
+      <!-- =========================
+         INTRO
+    ========================== -->
+
+      <section class="intro">
+        <div class="section-label">[ WHO WE ARE ]</div>
+
+        <div class="intro-content">
+          <h2>
+            A creative studio shaping identities, spaces and digital
+            experiences.
+          </h2>
+
+          <p>
+            VNTOLD works across creative direction, identity, digital design and
+            visual experiences to turn ideas into work people remember.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="code.js"></script>
   </body>
 </html>
+```
