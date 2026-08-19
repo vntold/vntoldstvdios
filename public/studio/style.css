@@ -1069,16 +1069,20 @@ body.menu-open .menu-symbol {
     font-size: 20px;
   }
   /* =========================================
-   MOBILE — CHANGE THE WORLD
+   MOBILE — CHANGE THE WORLD FIX
 ========================================= */
 
   @media (max-width: 700px) {
     .work-bottom {
+      position: absolute;
+
       left: 18px;
       right: 18px;
       bottom: 18px;
 
       display: block;
+
+      z-index: 5;
     }
 
     .work-year,
@@ -1088,14 +1092,14 @@ body.menu-open .menu-symbol {
 
     .category-text,
     .work-categories {
-      position: static;
+      position: relative;
 
       width: 100%;
 
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-start;
       align-items: baseline;
+      justify-content: flex-start;
 
       gap: 0 0.08em;
 
@@ -1103,9 +1107,11 @@ body.menu-open .menu-symbol {
 
       white-space: normal;
 
-      font-size: 21vw !important;
+      font-size: 19vw !important;
       line-height: 0.78;
       letter-spacing: -0.075em;
+
+      z-index: 6;
     }
 
     .category-text .category-word,
@@ -1115,14 +1121,14 @@ body.menu-open .menu-symbol {
       flex: none;
     }
 
-    /* CHANGE + THE stay together */
+    /* space between CHANGE and THE */
     .category-text .category-word:nth-child(1),
     .work-categories .category-word:nth-child(1),
     .work-categories span:nth-child(1) {
       margin-right: 0.08em;
     }
 
-    /* WORLD moves to second line */
+    /* WORLD drops to second line */
     .category-text .category-word:nth-child(3),
     .work-categories .category-word:nth-child(3),
     .work-categories span:nth-child(3) {
