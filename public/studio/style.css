@@ -641,59 +641,6 @@ a {
 }
 
 /* =========================================================
-   INTRO
-========================================================= */
-
-.intro {
-  min-height: 100vh;
-
-  background: #f0efe9;
-  color: #111111;
-
-  padding: 30px 25px 120px;
-
-  display: grid;
-
-  grid-template-columns:
-    1fr
-    3fr;
-
-  gap: 50px;
-}
-
-.section-label {
-  font-size: 11px;
-  font-weight: 700;
-
-  padding-top: 13px;
-}
-
-.intro-content h2 {
-  max-width: 1100px;
-
-  font-size: clamp(55px, 7.2vw, 140px);
-
-  line-height: 0.86;
-
-  font-weight: 600;
-
-  letter-spacing: -0.065em;
-}
-
-.intro-content p {
-  width: min(500px, 100%);
-
-  margin-top: 65px;
-  margin-left: auto;
-
-  font-size: 19px;
-
-  line-height: 1.15;
-
-  letter-spacing: -0.025em;
-}
-
-/* =========================================================
    FULL SCREEN MENU
 ========================================================= */
 
@@ -1047,22 +994,6 @@ body.menu-open .menu-symbol {
 
   .work-categories {
     font-size: 13vw;
-  }
-
-  /* INTRO */
-
-  .intro {
-    grid-template-columns: 1fr;
-
-    padding: 25px 18px 80px;
-  }
-
-  .intro-content h2 {
-    font-size: 15vw;
-  }
-
-  .intro-content p {
-    margin-top: 45px;
   }
 
   /* MENU */
