@@ -1068,4 +1068,65 @@ body.menu-open .menu-symbol {
   .social-link {
     font-size: 20px;
   }
+  /* =========================================
+   MOBILE — CHANGE THE WORLD
+========================================= */
+
+  @media (max-width: 700px) {
+    .work-bottom {
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+
+      display: block;
+    }
+
+    .work-year,
+    .work-index {
+      display: none;
+    }
+
+    .category-text,
+    .work-categories {
+      position: static;
+
+      width: 100%;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: baseline;
+
+      gap: 0 0.08em;
+
+      overflow: visible;
+
+      white-space: normal;
+
+      font-size: 21vw !important;
+      line-height: 0.78;
+      letter-spacing: -0.075em;
+    }
+
+    .category-text .category-word,
+    .work-categories .category-word,
+    .work-categories span {
+      display: inline-block;
+      flex: none;
+    }
+
+    /* CHANGE + THE stay together */
+    .category-text .category-word:nth-child(1),
+    .work-categories .category-word:nth-child(1),
+    .work-categories span:nth-child(1) {
+      margin-right: 0.08em;
+    }
+
+    /* WORLD moves to second line */
+    .category-text .category-word:nth-child(3),
+    .work-categories .category-word:nth-child(3),
+    .work-categories span:nth-child(3) {
+      flex-basis: 100%;
+    }
+  }
 }
