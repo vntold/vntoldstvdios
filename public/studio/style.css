@@ -94,11 +94,9 @@ a {
   align-items: flex-start;
 
   font-size: clamp(110px, 19vw, 365px);
-
   font-weight: 600;
 
   line-height: 0.73;
-
   letter-spacing: -0.075em;
 }
 
@@ -173,7 +171,6 @@ a {
   gap: 11px;
 
   color: inherit;
-
   text-decoration: none;
 }
 
@@ -190,7 +187,6 @@ a {
   font-weight: 700;
 
   line-height: 0.78;
-
   letter-spacing: -0.055em;
 }
 
@@ -432,7 +428,9 @@ a {
 .work-section {
   position: relative;
 
-  min-height: 100vh;
+  width: 100%;
+  height: 100svh;
+  min-height: 720px;
 
   background: #f0efe9;
   color: #111111;
@@ -442,7 +440,9 @@ a {
   padding: 23px 25px 30px;
 }
 
-/* TOP META */
+/* =========================================================
+   WORK TOP META
+========================================================= */
 
 .work-top {
   position: relative;
@@ -457,8 +457,6 @@ a {
     1fr;
 
   gap: 30px;
-
-  min-height: 26vh;
 }
 
 .work-meta {
@@ -498,11 +496,12 @@ a {
   width: 100%;
 
   overflow: hidden;
+
+  z-index: 2;
 }
 
 .carousel-track {
   display: flex;
-
   align-items: center;
 
   width: max-content;
@@ -558,7 +557,7 @@ a {
   filter: grayscale(0%);
 }
 
-/* duplicated track = seamless loop */
+/* seamless loop */
 
 @keyframes infiniteCarousel {
   from {
@@ -572,6 +571,10 @@ a {
 
 /* =========================================================
    WORK BOTTOM
+
+   IMPORTANT:
+   Everything in here is anchored to the bottom
+   of .work-section — NOT to the carousel.
 ========================================================= */
 
 .work-bottom {
@@ -581,51 +584,73 @@ a {
   right: 25px;
   bottom: 22px;
 
+  z-index: 3;
+
   display: grid;
 
   grid-template-columns:
     auto
-    1fr
+    minmax(0, 1fr)
     auto;
 
   align-items: end;
 
-  gap: 25px;
+  gap: 24px;
 }
 
 .work-year,
 .work-index {
+  padding-bottom: 7px;
+
   font-size: 9px;
   font-weight: 700;
+
+  white-space: nowrap;
 }
 
 .work-index {
   text-align: right;
 }
 
-/* HUGE CATEGORY TYPOGRAPHY */
+/* =========================================================
+   CHANGE THE WORLD
+========================================================= */
 
 .category-text {
-  position: absolute;
-  left: 3%;
-  bottom: 1.5%;
+  position: static;
+
+  min-width: 0;
 
   display: flex;
   align-items: baseline;
+  justify-content: flex-start;
 
-  gap: 0.12em;
+  gap: 0.06em;
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(90px, 12vw, 230px);
-  font-weight: 700;
-  line-height: 0.8;
-  letter-spacing: -0.075em;
+  overflow: visible;
 
   white-space: nowrap;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: clamp(80px, 10vw, 190px);
+
+  font-weight: 700;
+
+  line-height: 0.78;
+
+  letter-spacing: -0.075em;
 }
 
 .category-word {
+  display: inline-block;
+
+  flex: 0 0 auto;
+
   color: #d5d4cf;
+
+  cursor: default;
+
   transition: color 0.25s ease;
 }
 
@@ -687,7 +712,7 @@ a {
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-/* LEFT */
+/* MENU LEFT */
 
 .menu-left {
   display: flex;
@@ -763,7 +788,7 @@ a {
   letter-spacing: 0.17em;
 }
 
-/* RIGHT */
+/* MENU RIGHT */
 
 .menu-right {
   display: flex;
@@ -849,10 +874,6 @@ body.menu-open .menu-symbol {
 ========================================================= */
 
 @media (max-width: 900px) {
-  .work-top {
-    min-height: 22vh;
-  }
-
   .carousel-item {
     width: 260px;
     height: 160px;
@@ -860,6 +881,10 @@ body.menu-open .menu-symbol {
 
   .carousel-item.carousel-wide {
     width: 360px;
+  }
+
+  .category-text {
+    font-size: 9vw;
   }
 
   .menu-inner {
@@ -876,6 +901,8 @@ body.menu-open .menu-symbol {
 ========================================================= */
 
 @media (max-width: 700px) {
+  /* LOADER */
+
   .loader {
     padding: 18px;
   }
@@ -888,6 +915,8 @@ body.menu-open .menu-symbol {
     font-size: 30vw;
   }
 
+  /* HEADER */
+
   .header {
     padding: 18px;
   }
@@ -899,6 +928,8 @@ body.menu-open .menu-symbol {
   .header-right {
     gap: 0;
   }
+
+  /* HERO */
 
   .hero {
     min-height: 600px;
@@ -934,12 +965,19 @@ body.menu-open .menu-symbol {
     display: none;
   }
 
-  /* WORK */
+  /* =====================================================
+     MOBILE SELECTED WORK
+  ====================================================== */
 
   .work-section {
-    min-height: 85vh;
+    position: relative;
 
-    padding: 18px 18px 24px;
+    width: 100%;
+
+    height: 100svh;
+    min-height: 720px;
+
+    padding: 18px 18px 20px;
   }
 
   .work-top {
@@ -947,15 +985,23 @@ body.menu-open .menu-symbol {
       1fr
       1fr;
 
-    min-height: 18vh;
+    gap: 20px;
+  }
+
+  .work-meta {
+    font-size: 8px;
   }
 
   .work-meta-center {
     display: none;
   }
 
+  /* CAROUSEL STAYS IN THE MIDDLE */
+
   .carousel-viewport {
     top: 44%;
+
+    z-index: 2;
   }
 
   .carousel-item {
@@ -971,50 +1017,64 @@ body.menu-open .menu-symbol {
     animation-duration: 28s;
   }
 
+  /* BOTTOM TEXT STAYS AT BOTTOM OF SECTION */
+
   .work-bottom {
+    position: absolute;
+
     left: 18px;
     right: 18px;
     bottom: 18px;
 
-    grid-template-columns:
-      1fr
-      auto;
+    z-index: 3;
+
+    display: block;
   }
 
-  .work-year {
+  .work-year,
+  .work-index {
     display: none;
   }
 
-  .work-categories {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 0 0.08em;
+  .category-text {
+    position: static;
 
     width: 100%;
 
-    overflow: visible;
-    white-space: normal;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
 
-    font-size: 22vw;
+    flex-wrap: nowrap;
+
+    gap: 0.06em;
+
+    overflow: visible;
+
+    white-space: nowrap;
+
+    /*
+      Small enough that:
+      "change the world"
+      fits across a phone screen
+      without being clipped.
+    */
+    font-size: 11vw;
+
     line-height: 0.78;
+
     letter-spacing: -0.075em;
   }
 
-  .work-categories span {
+  .category-word {
     display: inline-block;
+
+    flex: 0 0 auto;
   }
 
-  .work-categories span:nth-child(1),
-  .work-categories span:nth-child(2) {
-    flex-basis: auto;
-  }
-
-  .work-categories span:nth-child(3) {
-    flex-basis: 100%;
-  }
-
-  /* MENU */
+  /* =====================================================
+     MOBILE MENU
+  ====================================================== */
 
   .menu-inner {
     width: 100%;
@@ -1067,59 +1127,5 @@ body.menu-open .menu-symbol {
 
   .social-link {
     font-size: 20px;
-  }
-  /* =========================================
-   MOBILE — SELECTED WORK BOTTOM TEXT
-========================================= */
-
-  @media (max-width: 700px) {
-    /* Make sure the entire work section
-     provides the positioning boundary */
-    .work-section {
-      position: relative;
-      min-height: 100vh;
-    }
-
-    /* Keep this at the ACTUAL bottom
-     of the Selected Work section */
-    .work-bottom {
-      position: absolute;
-
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-
-      width: auto;
-
-      z-index: 1;
-    }
-
-    .category-text,
-    .work-categories {
-      position: static;
-
-      display: flex;
-      flex-wrap: nowrap;
-
-      justify-content: flex-start;
-      align-items: baseline;
-
-      width: 100%;
-
-      gap: 0.08em;
-
-      white-space: nowrap;
-
-      font-size: 15.5vw !important;
-      line-height: 0.8;
-      letter-spacing: -0.07em;
-
-      overflow: visible;
-    }
-
-    .category-word {
-      display: inline-block;
-      flex: 0 0 auto;
-    }
   }
 }
