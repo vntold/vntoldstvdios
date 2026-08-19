@@ -1069,70 +1069,57 @@ body.menu-open .menu-symbol {
     font-size: 20px;
   }
   /* =========================================
-   MOBILE — CHANGE THE WORLD FIX
+   MOBILE — SELECTED WORK BOTTOM TEXT
 ========================================= */
 
   @media (max-width: 700px) {
+    /* Make sure the entire work section
+     provides the positioning boundary */
+    .work-section {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Keep this at the ACTUAL bottom
+     of the Selected Work section */
     .work-bottom {
       position: absolute;
 
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
 
-      display: block;
+      width: auto;
 
-      z-index: 5;
-    }
-
-    .work-year,
-    .work-index {
-      display: none;
+      z-index: 1;
     }
 
     .category-text,
     .work-categories {
-      position: relative;
+      position: static;
+
+      display: flex;
+      flex-wrap: nowrap;
+
+      justify-content: flex-start;
+      align-items: baseline;
 
       width: 100%;
 
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: flex-start;
+      gap: 0.08em;
 
-      gap: 0 0.08em;
+      white-space: nowrap;
+
+      font-size: 15.5vw !important;
+      line-height: 0.8;
+      letter-spacing: -0.07em;
 
       overflow: visible;
-
-      white-space: normal;
-
-      font-size: 19vw !important;
-      line-height: 0.78;
-      letter-spacing: -0.075em;
-
-      z-index: 6;
     }
 
-    .category-text .category-word,
-    .work-categories .category-word,
-    .work-categories span {
+    .category-word {
       display: inline-block;
-      flex: none;
-    }
-
-    /* space between CHANGE and THE */
-    .category-text .category-word:nth-child(1),
-    .work-categories .category-word:nth-child(1),
-    .work-categories span:nth-child(1) {
-      margin-right: 0.08em;
-    }
-
-    /* WORLD drops to second line */
-    .category-text .category-word:nth-child(3),
-    .work-categories .category-word:nth-child(3),
-    .work-categories span:nth-child(3) {
-      flex-basis: 100%;
+      flex: 0 0 auto;
     }
   }
 }
