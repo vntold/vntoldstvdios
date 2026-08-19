@@ -444,4 +444,18 @@ body {
   .coming-soon-wrap {
     bottom: 0;
   }
+  /* REMOVE CHROME AUTOFILL BACKGROUND */
+
+  .password-input:-webkit-autofill,
+  .password-input:-webkit-autofill:hover,
+  .password-input:-webkit-autofill:focus,
+  .password-input:-webkit-autofill:active {
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff;
+
+    -webkit-box-shadow: 0 0 0 1000px #111111 inset !important;
+    box-shadow: 0 0 0 1000px #111111 inset !important;
+
+    transition: background-color 9999s ease-out 0s;
+  }
 }
