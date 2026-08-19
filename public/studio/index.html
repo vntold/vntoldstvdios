@@ -8,14 +8,13 @@
     <title>VNTOLD STVDIO®</title>
 
     <link rel="icon" type="image/png" href="../favicon.png" />
-
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <!-- =========================
-       LOADER
-  ========================== -->
+         LOADER
+    ========================== -->
 
     <div class="loader" id="loader">
       <div class="loader-top">
@@ -37,8 +36,8 @@
     </div>
 
     <!-- =========================
-       SITE
-  ========================== -->
+         MAIN SITE
+    ========================== -->
 
     <main class="site" id="site">
       <!-- HEADER -->
@@ -73,8 +72,8 @@
       </header>
 
       <!-- =========================
-         HERO
-    ========================== -->
+           HERO
+      ========================== -->
 
       <section class="hero">
         <video
@@ -119,6 +118,7 @@
             [
             <span id="currentTime">0:00</span>
             ]
+
             <span id="totalTime">0:00</span>
           </div>
 
@@ -136,8 +136,8 @@
       </section>
 
       <!-- =========================
-         INTRO
-    ========================== -->
+           INTRO
+      ========================== -->
 
       <section class="intro">
         <div class="section-label">[ WHO WE ARE ]</div>
@@ -156,10 +156,15 @@
       </section>
     </main>
 
-    <script src="code.js"></script>
-    <div class="menu-overlay" id="menuOverlay">
+    <!-- =========================
+         FULL SCREEN MENU
+    ========================== -->
+
+    <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
       <div class="menu-inner">
-        <div class="menu-left">
+        <!-- LEFT MENU -->
+
+        <nav class="menu-left">
           <a href="/studio/" class="menu-item">
             <span class="menu-number">01</span>
 
@@ -190,14 +195,16 @@
             <span class="menu-link"> Contact </span>
           </a>
 
-          <a href="/studio/archive/" class="menu-item muted">
-            <span class="menu-number">06</span>
+          <div class="menu-item muted">
+            <span class="menu-number"> 06 </span>
 
             <span class="menu-link"> Archive </span>
 
             <span class="coming-label"> COMING SOON </span>
-          </a>
-        </div>
+          </div>
+        </nav>
+
+        <!-- RIGHT MENU -->
 
         <div class="menu-right">
           <div class="social-block">
@@ -226,5 +233,14 @@
         </div>
       </div>
     </div>
+
+    <!-- =========================
+         JAVASCRIPT
+
+         IMPORTANT:
+         This stays at the VERY BOTTOM.
+    ========================== -->
+
+    <script src="code.js"></script>
   </body>
 </html>
