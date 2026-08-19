@@ -52,62 +52,36 @@ body {
 }
 
 /* =========================
-   EMAIL SIGNUP
+   PASSWORD ENTRY
 ========================= */
 
-.notify-form {
+.password-form {
   position: absolute;
 
-  bottom: calc(100% + 58px);
+  bottom: calc(100% + 66px);
 
-  width: 390px;
-  height: 58px;
+  width: 330px;
+  height: 54px;
 
   display: flex;
   align-items: center;
 
-  padding: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.38);
 
-  margin: 0;
-
-  background: rgba(255, 255, 255, 0.055);
-
-  border: 1px solid rgba(255, 255, 255, 0.16);
-
-  border-radius: 100px;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.025),
-    0 12px 35px rgba(0, 0, 0, 0.2);
-
-  backdrop-filter: blur(18px) saturate(130%);
-
-  -webkit-backdrop-filter: blur(18px) saturate(130%);
-
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: border-color 0.25s ease;
 }
 
-.notify-form:focus-within {
-  background: rgba(255, 255, 255, 0.075);
-
-  border-color: rgba(255, 255, 255, 0.28);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.13),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.03),
-    0 14px 40px rgba(0, 0, 0, 0.22);
+.password-form:focus-within {
+  border-color: rgba(255, 255, 255, 0.9);
 }
 
-.email-input {
+.password-input {
   flex: 1;
-  min-width: 0;
+
+  width: 100%;
   height: 100%;
 
-  padding: 0 18px;
+  padding: 0;
 
   background: transparent;
 
@@ -117,76 +91,55 @@ body {
   color: #f0f0ed;
 
   font-family: inherit;
-  font-size: 15px;
-  font-weight: 500;
+
+  font-size: 22px;
+  font-weight: 400;
+
+  letter-spacing: -0.02em;
 }
 
-.email-input::placeholder {
-  color: rgba(255, 255, 255, 0.42);
+.password-input::placeholder {
+  color: rgba(255, 255, 255, 0.92);
 
   opacity: 1;
 }
 
-/* =========================
-   SUBMIT BUTTON
-========================= */
-
-.submit-button {
-  height: 48px;
-
-  padding: 0 18px 0 22px;
+.password-submit {
+  width: 58px;
+  height: 100%;
 
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 
-  gap: 16px;
+  padding: 0 4px 0 0;
 
-  flex-shrink: 0;
+  background: transparent;
 
-  background: rgba(245, 245, 242, 0.95);
+  border: none;
 
-  color: #111111;
-
-  border: 1px solid rgba(255, 255, 255, 0.68);
-
-  border-radius: 100px;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 4px 15px rgba(0, 0, 0, 0.12);
+  color: #f0f0ed;
 
   font-family: inherit;
-  font-size: 15px;
-  font-weight: 600;
+
+  font-size: 38px;
+  font-weight: 300;
+
+  line-height: 1;
 
   cursor: pointer;
 
   transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
-.submit-button:hover {
-  background: rgba(15, 15, 15, 0.78);
-
-  color: #f0f0ed;
-
-  border-color: rgba(255, 255, 255, 0.28);
+.password-submit:hover {
+  transform: translateX(5px);
 }
 
-.arrow {
-  font-size: 21px;
-  font-weight: 400;
-
-  line-height: 1;
-
-  transition: transform 0.25s ease;
-}
-
-.submit-button:hover .arrow {
-  transform: translateX(4px);
+.password-submit:active {
+  transform: translateX(8px);
 }
 
 /* =========================
@@ -347,10 +300,18 @@ body {
     top: 47%;
   }
 
-  .notify-form {
-    bottom: calc(100% + 45px);
+  .password-form {
+    bottom: calc(100% + 52px);
 
-    width: 350px;
+    width: 300px;
+  }
+
+  .password-input {
+    font-size: 20px;
+  }
+
+  .password-submit {
+    font-size: 34px;
   }
 
   .countdown {
@@ -407,30 +368,22 @@ body {
     padding: 0 15px;
   }
 
-  .notify-form {
-    position: absolute;
+  .password-form {
+    bottom: calc(100% + 42px);
 
-    bottom: calc(100% + 38px);
+    width: min(300px, calc(100vw - 44px));
 
-    width: min(340px, calc(100vw - 32px));
-
-    height: 54px;
+    height: 48px;
   }
 
-  .submit-button {
-    height: 44px;
-
-    padding: 0 15px 0 18px;
-
-    gap: 11px;
-
-    font-size: 14px;
+  .password-input {
+    font-size: 18px;
   }
 
-  .email-input {
-    font-size: 14px;
+  .password-submit {
+    width: 48px;
 
-    padding: 0 15px;
+    font-size: 31px;
   }
 
   .countdown {

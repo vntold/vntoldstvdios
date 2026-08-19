@@ -13,20 +13,24 @@
   <body>
     <main class="page">
       <div class="center-wrap">
-        <!-- EMAIL SIGNUP -->
-        <form class="notify-form" id="notifyForm">
+        <!-- PASSWORD ENTRY -->
+        <form class="password-form" id="passwordForm">
           <input
-            type="email"
-            class="email-input"
-            id="email"
-            placeholder="Your email address"
-            aria-label="Your email address"
+            type="password"
+            class="password-input"
+            id="password"
+            placeholder="Password"
+            aria-label="Password"
+            autocomplete="current-password"
             required
           />
 
-          <button class="submit-button" type="submit">
-            <span>Submit</span>
-            <span class="arrow">→</span>
+          <button
+            class="password-submit"
+            type="submit"
+            aria-label="Enter website"
+          >
+            →
           </button>
         </form>
 
@@ -152,31 +156,20 @@
       window.addEventListener("resize", fitComingSoon);
 
       /* =========================
-         EMAIL FORM
+         PASSWORD FORM
       ========================= */
 
-      const notifyForm = document.getElementById("notifyForm");
+      const passwordForm = document.getElementById("passwordForm");
 
-      const emailInput = document.getElementById("email");
-
-      const submitButton = notifyForm.querySelector(".submit-button");
-
-      notifyForm.addEventListener("submit", function (event) {
+      passwordForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        if (!emailInput.checkValidity()) {
-          emailInput.reportValidity();
-          return;
-        }
+        /*
+          Password checking can be connected
+          to Cloudflare later.
 
-        submitButton.querySelector("span:first-child").textContent =
-          "Thank you";
-
-        emailInput.value = "";
-
-        setTimeout(() => {
-          submitButton.querySelector("span:first-child").textContent = "Submit";
-        }, 2500);
+          For now this stops the page refreshing.
+        */
       });
     </script>
   </body>
