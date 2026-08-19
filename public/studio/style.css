@@ -986,7 +986,32 @@ body.menu-open .menu-symbol {
   }
 
   .work-categories {
-    font-size: 13vw;
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0 0.08em;
+
+    width: 100%;
+
+    overflow: visible;
+    white-space: normal;
+
+    font-size: 22vw;
+    line-height: 0.78;
+    letter-spacing: -0.075em;
+  }
+
+  .work-categories span {
+    display: inline-block;
+  }
+
+  .work-categories span:nth-child(1),
+  .work-categories span:nth-child(2) {
+    flex-basis: auto;
+  }
+
+  .work-categories span:nth-child(3) {
+    flex-basis: 100%;
   }
 
   /* MENU */
