@@ -1,12 +1,12 @@
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-/* =========================
-   PAGE
-========================= */
 
 html,
 body {
@@ -23,6 +23,10 @@ body {
   overflow: hidden;
 }
 
+/* =========================================================
+   PAGE
+========================================================= */
+
 .page {
   position: relative;
 
@@ -34,9 +38,9 @@ body {
   background: #111111;
 }
 
-/* =========================
+/* =========================================================
    CENTRE CONTENT
-========================= */
+========================================================= */
 
 .center-wrap {
   position: absolute;
@@ -51,9 +55,9 @@ body {
   align-items: center;
 }
 
-/* =========================
+/* =========================================================
    PASSWORD ENTRY
-========================= */
+========================================================= */
 
 .password-form {
   position: absolute;
@@ -66,6 +70,8 @@ body {
   display: flex;
   align-items: center;
 
+  background: #111111;
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.38);
 
   transition: border-color 0.25s ease;
@@ -75,6 +81,10 @@ body {
   border-color: rgba(255, 255, 255, 0.9);
 }
 
+/* =========================================================
+   PASSWORD INPUT
+========================================================= */
+
 .password-input {
   flex: 1;
 
@@ -83,14 +93,13 @@ body {
 
   padding: 0;
 
-  background: transparent;
-  -webkit-appearance: none;
-  appearance: none;
-
   border: none;
   outline: none;
 
-  color: #f0f0ed;
+  background: #111111 !important;
+  background-color: #111111 !important;
+
+  color: #ffffff;
 
   font-family: inherit;
 
@@ -98,13 +107,58 @@ body {
   font-weight: 400;
 
   letter-spacing: -0.02em;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  box-shadow: none;
 }
+
+/* PLACEHOLDER */
 
 .password-input::placeholder {
   color: rgba(255, 255, 255, 0.92);
 
   opacity: 1;
 }
+
+/* =========================================================
+   CHROME / SAFARI AUTOFILL FIX
+========================================================= */
+
+.password-input:-webkit-autofill,
+.password-input:-webkit-autofill:hover,
+.password-input:-webkit-autofill:focus,
+.password-input:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffffff !important;
+
+  caret-color: #ffffff !important;
+
+  background-color: #111111 !important;
+
+  -webkit-box-shadow: 0 0 0 1000px #111111 inset !important;
+
+  box-shadow: 0 0 0 1000px #111111 inset !important;
+
+  border: none !important;
+
+  transition: background-color 999999s ease-in-out 0s;
+}
+
+/* STANDARD AUTOFILL */
+
+.password-input:autofill {
+  color: #ffffff !important;
+
+  background: #111111 !important;
+  background-color: #111111 !important;
+
+  box-shadow: 0 0 0 1000px #111111 inset !important;
+}
+
+/* =========================================================
+   PASSWORD ARROW
+========================================================= */
 
 .password-submit {
   width: 58px;
@@ -116,9 +170,10 @@ body {
 
   padding: 0 4px 0 0;
 
-  background: transparent;
-
   border: none;
+  outline: none;
+
+  background: #111111;
 
   color: #f0f0ed;
 
@@ -130,6 +185,9 @@ body {
   line-height: 1;
 
   cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
 
   transition:
     transform 0.25s ease,
@@ -143,6 +201,8 @@ body {
 .password-submit:active {
   transform: translateX(8px);
 }
+
+/* WRONG PASSWORD */
 
 .password-form.error {
   border-color: #ff3b19;
@@ -172,9 +232,9 @@ body {
   }
 }
 
-/* =========================
+/* =========================================================
    COUNTDOWN
-========================= */
+========================================================= */
 
 .countdown {
   display: flex;
@@ -221,9 +281,9 @@ body {
   text-transform: uppercase;
 }
 
-/* =========================
+/* =========================================================
    BRAND LOCKUP
-========================= */
+========================================================= */
 
 .brand-row {
   display: flex;
@@ -285,9 +345,9 @@ body {
   white-space: nowrap;
 }
 
-/* =========================
+/* =========================================================
    GIANT "COMING SOON"
-========================= */
+========================================================= */
 
 .coming-soon-wrap {
   position: absolute;
@@ -321,9 +381,9 @@ body {
   will-change: transform;
 }
 
-/* =========================
+/* =========================================================
    TABLET
-========================= */
+========================================================= */
 
 @media (max-width: 900px) {
   .center-wrap {
@@ -385,9 +445,9 @@ body {
   }
 }
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 600px) {
   .center-wrap {
@@ -445,42 +505,5 @@ body {
 
   .coming-soon-wrap {
     bottom: 0;
-  }
-
-  /* REMOVE PASSWORD AUTOFILL BACKGROUND */
-
-  .password-input,
-  .password-input:hover,
-  .password-input:focus,
-  .password-input:active {
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #ffffff;
-  }
-
-  .password-input:-webkit-autofill,
-  .password-input:-webkit-autofill:hover,
-  .password-input:-webkit-autofill:focus,
-  .password-input:-webkit-autofill:active {
-    -webkit-text-fill-color: #ffffff !important;
-    caret-color: #ffffff !important;
-
-    background: transparent !important;
-    background-color: transparent !important;
-
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-
-    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-    box-shadow: 0 0 0 1000px transparent inset !important;
-
-    transition: background-color 999999s ease-in-out 0s;
-  }
-
-  /* newer browser autofill selector */
-  .password-input:autofill {
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #ffffff !important;
   }
 }
